@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Notify') {
             steps {
-                sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"This is a line of text.\"}'  ${SLACK}"
+                sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Build completed with $result.\"}'  ${SLACK}"
             }
         }
     }
