@@ -11,7 +11,7 @@ pipeline {
                 sh "echo $PATH"
                 //sh 'mvn -B -DskipTests clean package'
                 script {
-                        if (env.BUILD_NUMBER % 2 == 0 ) {
+                    if (env.BUILD_NUMBER.toInteger() % 2 == 0 ) {
                                 sh "khwdlkwehjlkwhewjk"
                         } else {
                                 echo 'I execute elsewhere'
