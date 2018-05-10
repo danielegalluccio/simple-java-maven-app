@@ -22,8 +22,12 @@ pipeline {
         stage('Notify') {
             steps {
                 sh "echo ${currentBuild.currentResult}"
-                sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Build completed with ${currentBuild.currentResult}.\"}'  ${SLACK}"
             }
+        }
+    }
+    post { 
+        always { 
+                sh "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Build completed with ${currentBuild.currentResult}.\"}'  ${SLACK}"
         }
     }
 }
